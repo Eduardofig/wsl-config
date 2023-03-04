@@ -18,6 +18,7 @@ local nmaps = {
     {'<leader>;', 'A;<Esc>', {}},
     {'<leader>lt', ':!pdflatex main.tex<Cr><Cr>', {}},
     {'<leader>rr', ':source ~/.config/nvim/init.lua<CR>', {}},
+    {'<leader>e', ':NvimTreeToggle<CR>', {}},
     {'<leader>t', ':tabnew <CR>', {}},
     {'<CR>', 'o<Esc>', {}},
     -- {'<leader>gt', ':call CocAction(\'jumpDefinition\')<CR>', {}},

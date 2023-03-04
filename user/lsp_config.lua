@@ -11,9 +11,9 @@ local server_list = {
     },
     tsserver = {},
     --sumneko_lua = {},
-    rust_analyzer = {},
+    --rust_analyzer = {},
     bashls = {},
-    --jdtls = {},
+    jdtls = {},
 }
 
 local installer_opts = {
@@ -30,6 +30,8 @@ local lspcfg = require "lspconfig"
 for server, opts in pairs(server_list) do
     lspcfg[server].setup(opts)
 end
+
+require('rust-tools').setup{}
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
