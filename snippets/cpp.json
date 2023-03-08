@@ -24,12 +24,12 @@
   },
   "while": {
     "prefix": "while",
-    "body": ["while($1)", "{", "\t$2", "}"],
+    "body": ["while($1) {", "\t$2", "}"],
     "description": ""
   },
   "foreach": {
     "prefix": "foreach",
-    "body": ["for(${1:auto} ${2:var} : ${3:collection_to_loop})", "{", "\t$0", "}"],
+    "body": ["for(${1:auto} ${2:var} : ${3:collection_to_loop}) {", "\t$0", "}"],
     "description": "Code snippet for range-based for loop (c++11) statement"
   },
   "if": {
@@ -244,6 +244,8 @@
       "prefix": "modar",
       "description": "Code snippet for modular arthmetic",
       "body": [
+          "const int MOD = ${1:1e9 + 7};",
+          "\t",
           "int mod_add(int a, int b)",
           "{",
           "\ta %= MOD;",
@@ -358,6 +360,48 @@
         "\t}",
         "}"
     ]
+  },
+  "unionfind" : {
+      "prefix": "unionfind",
+      "description": "Code snippet for unionfind",
+      "body": [
+        "struct unionfind",
+        "{",
+        "\tvector<int> par, sz;",
+        "\t",
+        "\tunionfind(int n)",
+        "\t{",
+        "\t\tpar.resize(n);",
+        "\t\tsz.resize(n);",
+        "\t",
+        "\t\tfor(int u = 0; u < n; u++) {",
+        "\t\t\tpar[u] = u;",
+        "\t\t\tsz[u] = 1;",
+        "\t\t}",
+        "\t}",
+        "\t",
+        "\tint find(int u)",
+        "\t{",
+        "\t\tif(par[u] == u) {",
+        "\t\t\treturn u;",
+        "\t\t}",
+        "\t\treturn par[u] = find(par[u]);",
+        "\t}",
+        "\t",
+        "\tvoid unite(int u, int v)",
+        "\t{",
+        "\t\tu = find(u);",
+        "\t\tv = find(v);",
+        "\t",
+        "\t\tif(sz[u] > sz[v]) {",
+        "\t\t\tswap(u, v);",
+        "\t\t}",
+        "\t",
+        "\t\tpar[u] = v;",
+        "\t\tsz[v] += sz[u];",
+        "\t}",
+        "};"
+      ]
   },
   "Main function template": {
       "prefix": "main",

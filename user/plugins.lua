@@ -55,5 +55,12 @@ packer.startup(function()
         tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+    --commenting things
+    use "numToStr/Comment.nvim"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+
+    --auto pairs
+    use "windwp/nvim-autopairs"
+
 end)
 

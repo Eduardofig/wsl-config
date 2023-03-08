@@ -14,20 +14,3 @@ vim.cmd("hi DiagnosticVirtualTextWarn guibg=None")
 vim.cmd("hi DiagnosticVirtualTextHint guibg=None")
 vim.cmd("hi DiagnosticVirtualTextHint guibg=None")
 vim.cmd("hi Type guifg=#ad345c")
-
--- treesitter_config
-require('nvim-treesitter.configs').setup({
-    highlight = {
-        enable = true
-    },
-    ensure_installed = {
-        'c',
-        'lua',
-        'rust',
-        'cpp',
-        'python',
-        'javascript',
-        'typescript',
-    }
-})
-
