@@ -8,7 +8,8 @@ local server_list = {
         python = {
             analysis = {
                 useLibraryCodeForTypes = true
-            }
+            }, 
+            path = "/usr/bin/python3"
         }
     },
     tsserver = {},

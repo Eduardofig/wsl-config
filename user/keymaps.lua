@@ -5,7 +5,7 @@ local opts = { noremap = true }
 local imaps = {
     {'<C-f>', '<Plug>(coc-snippets-expand)', {}},
     {'<C-l>', '<Esc>viw~ea', {}},
-    {'<C-o>', '<Esc>A;<CR>', {}},
+    {'<C-o>', '<Esc>A;<Esc>', {}},
     {'<C-j>', '<C-n>', opts},
     {'<C-k>', '<C-p>', opts},
 }
@@ -44,12 +44,26 @@ local nmaps = {
     {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
     {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
     {'<leader>rn', ':IncRename ', opts},
-
-    -- {'<leader>do', ':call CocAction(\'doHover\')<CR>', opts},
-    -- {'<silent> <space><space>', ':<C-u>CocFzfList<CR>', opts},
 }
 
 for i = 1, #nmaps do
     keymap('n', nmaps[i][1], nmaps[i][2], nmaps[i][3])
 end
+
+-- Gambiarra Telescope 
+local builtin = require "telescope.builtin"
+
+vim.keymap.set('n', '<A-[>', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('i', '<A-[>', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<A-]>', builtin.treesitter, {})
+vim.keymap.set('i', '<A-]>', builtin.treesitter, {})
+vim.keymap.set('n', '<A-f>', builtin.find_files, {})
+vim.keymap.set('i', '<A-f>', builtin.find_files, {})
+vim.keymap.set('n', '<A-h>', builtin.search_history, {})
+vim.keymap.set('i', '<A-h>', builtin.search_history, {})
+vim.keymap.set('n', '<A-r>', builtin.grep_string, {})
+vim.keymap.set('i', '<A-r>', builtin.grep_string, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
