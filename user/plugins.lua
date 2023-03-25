@@ -25,20 +25,23 @@ packer.startup(function()
     --color
     use 'folke/tokyonight.nvim'
     --use 'EdenEast/nightfox.nvim'
-    use 'nvim-treesitter/nvim-treesitter'
     use 'folke/lsp-colors.nvim'
 
+    --treesitter
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-treesitter/playground'
+
     --rename
-    use "smjonas/inc-rename.nvim"
+    use 'smjonas/inc-rename.nvim'
     
     --rust tools
     use 'simrat39/rust-tools.nvim'
 
     -- function signature
-    use "ray-x/lsp_signature.nvim"
+    use 'ray-x/lsp_signature.nvim'
 
     --terminal
-    use "akinsho/toggleterm.nvim"
+    use 'akinsho/toggleterm.nvim'
 
     --lualine
     use {
@@ -56,11 +59,11 @@ packer.startup(function()
     }
 
     --commenting things
-    use "numToStr/Comment.nvim"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use 'numToStr/Comment.nvim'
+    use 'JoosepAlviste/nvim-ts-context-commentstring'
 
     --auto pairs
-    use "windwp/nvim-autopairs"
+    use 'windwp/nvim-autopairs'
 
     --telescope
     use {
@@ -69,5 +72,13 @@ packer.startup(function()
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    --harpoon
+    use 'theprimeagen/harpoon'
+
+    --undo tree
+    use 'mbbill/undotree'
+
+    --Git
+    use "tpope/vim-fugitive"
 end)
 

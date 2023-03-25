@@ -8,7 +8,7 @@ toggleterm.setup({
         border = "curved",
         winblend = 0,
         highlights = {
-            border = "normal",
+            border = "TelescopeBorder",
             background = "normal",
         },
     },

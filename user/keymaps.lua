@@ -3,7 +3,6 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
 
 local imaps = {
-    {'<C-f>', '<Plug>(coc-snippets-expand)', {}},
     {'<C-l>', '<Esc>viw~ea', {}},
     {'<C-o>', '<Esc>A;<Esc>', {}},
     {'<C-j>', '<C-n>', opts},
@@ -14,28 +13,23 @@ for i = 1, #imaps do
     keymap('i', imaps[i][1], imaps[i][2], imaps[1][3])
 end
 
+
 local nmaps = {
     {'<leader>;', 'A;<Esc>', {}},
+
     {'<leader>lt', ':!pdflatex main.tex<Cr><Cr>', {}},
     {'<leader>rr', ':source ~/.config/nvim/init.lua<CR>', {}},
     {'<leader>e', ':NvimTreeToggle<CR>', {}},
+    {'<leader>u', ':UndotreeToggle<CR>:UndotreeFocus<CR>', {}},
     {'<leader>t', ':tabnew <CR>', {}},
+
     {'<CR>', 'o<Esc>', {}},
-    -- {'<leader>gt', ':call CocAction(\'jumpDefinition\')<CR>', {}},
-    -- {'<leader>gd', ':call CocAction(\'jumpDefinition\', \'split\')<CR>', {}},
-    -- {'<leader>gv', ':call CocAction(\'jumpDefinition\', \'vsplit\')<CR>', {}},
-    -- {'<leader>e', ':CocCommand explorer<CR>', {}},
-    -- {'<leader>ff', ':Files<CR>', {}},
-    -- {'<leader>fr', ':Rg<CR>', {}},
-    --{'/', ':BLines<CR>', {}},
-    -- {'<leader>fa', ':Ag<CR>', {}},
-    -- {'<leader>fi', ':History:<CR>', {}},
-    -- {'<leader>fl', ':Lines<CR>', {}},
-    -- {'<leader>m', ':MaximizerToggle!<CR>', {}},
+
     {'<leader>h', ':wincmd h<CR>', {}},
     {'<leader>j', ':wincmd j<CR>', {}},
     {'<leader>k', ':wincmd k<CR>', {}},
     {'<leader>l', ':wincmd l<CR>', {}},
+
     {'<leader>gt', ':lua vim.lsp.buf.definition()<CR>', opts},
     {'<leader>gd', ':lua vim.lsp.buf.implementation()<CR>', opts},
     {'<leader>do', ':lua vim.lsp.buf.hover()<CR>', opts},
@@ -43,7 +37,12 @@ local nmaps = {
     {'<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', opts},
     {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
     {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
+
     {'<leader>rn', ':IncRename ', opts},
+
+    {'<leader>T', ':Telescope ', opts},
+
+    {'J', 'mzJ`z', opts},
 }
 
 for i = 1, #nmaps do
@@ -52,18 +51,39 @@ end
 
 -- Gambiarra Telescope 
 local builtin = require "telescope.builtin"
+local mark = require "harpoon.mark"
+local ui = require "harpoon.ui"
 
-vim.keymap.set('n', '<A-[>', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('i', '<A-[>', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<A-]>', builtin.treesitter, {})
-vim.keymap.set('i', '<A-]>', builtin.treesitter, {})
-vim.keymap.set('n', '<A-f>', builtin.fd, {})
-vim.keymap.set('i', '<A-f>', builtin.fd, {})
-vim.keymap.set('n', '<A-h>', builtin.search_history, {})
-vim.keymap.set('i', '<A-h>', builtin.search_history, {})
-vim.keymap.set('n', '<A-r>', builtin.grep_string, {})
-vim.keymap.set('i', '<A-r>', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+local tmaps = {
+    {'n', '<A-[>', builtin.current_buffer_fuzzy_find, {}},
+    {'i', '<A-[>', builtin.current_buffer_fuzzy_find, {}},
+    {'n', '<A-]>', builtin.treesitter, {}},
+    {'i', '<A-]>', builtin.treesitter, {}},
+    {'n', '<A-f>', builtin.fd, {}},
+    {'i', '<A-f>', builtin.fd, {}},
+    {'n', '<A-h>', builtin.command_history, {}},
+    {'i', '<A-h>', builtin.command_history, {}},
+    {'v', '<A-h>', builtin.command_history, {}},
+    {'n', '<A-r>', builtin.grep_string, {}},
+    {'i', '<A-r>', builtin.grep_string, {}},
+    {'n', '<A-b>', builtin.buffers, {}},
+    {'i', '<A-b>', builtin.buffers, {}},
+
+    {'v', 'J', ":m '>+1<CR>gv=gv", {}},
+    {'v', 'K', ":m '<-2<CR>gv=gv", {}},
+
+    {'n', '<A-a>', mark.add_file, {}},
+    {'n', '<A-e>', ui.toggle_quick_menu, {}},
+
+    {'n', '<A-j>', function() ui.nav_file(1) end, {}},
+    {'n', '<A-k>', function() ui.nav_file(2) end, {}},
+    {'n', '<A-l>', function() ui.nav_file(3) end, {}},
+    {'n', '<A-;>', function() ui.nav_file(4) end, {}},
+
+    {'n', '<leader>g', vim.cmd.Git, {}}
+}
+
+for i = 1, #tmaps do
+    vim.keymap.set(tmaps[i][1], tmaps[i][2], tmaps[i][3], tmaps[i][4])
+end
 

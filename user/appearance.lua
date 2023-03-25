@@ -2,6 +2,7 @@
 vim.cmd("colorscheme tokyonight")
 vim.cmd("hi Normal guibg=none")
 vim.cmd("hi NormalNC guibg=none")
+vim.cmd("hi NormalFloat guibg=none")
 vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear TabLineFill")
