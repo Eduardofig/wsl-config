@@ -48,7 +48,8 @@ cmp.setup({
     window = {
         completion = { 
             border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            winhighlight = 'Normal:Pmenu,FloatBorder:None'
+            winhighlight = 'Normal:Pmenu,FloatBorder:None',
+            selected_item = { highlight="PmenuSel", icon=">> "}
         },
         documentation = { 
             border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -91,6 +92,15 @@ cmp.setup({
     formatting = {
         fields = {"kind", "abbr", "menu"},
         format = function(entry, vim_item)
+
+            if entry ~= nil then
+                print(vim.inspect(entry.id))
+            end
+
+            if cmp.get_selected_entry() == entry then
+                vim_item.menu = string.format("this item %s[%s]", vim_item.kind, entry.source.name:gsub("^%l", string.upper))
+            end
+
             vim_item.menu = string.format("%s[%s]", vim_item.kind, entry.source.name:gsub("^%l", string.upper))
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             return vim_item
