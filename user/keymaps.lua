@@ -43,6 +43,8 @@ local nmaps = {
     {'<leader>T', ':Telescope ', opts},
 
     {'J', 'mzJ`z', opts},
+
+    {'=', 'mzgg=G`z', opts},
 }
 
 for i = 1, #nmaps do
