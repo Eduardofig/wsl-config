@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -134,3 +134,9 @@ source /home/duzinho039/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 export PATH=/home/duzinho039/.cargo/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/duzinho039/go/bin
+export PATH=$PATH:/home/duzinho039/.local/bin
+#source /home/duzinho039/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

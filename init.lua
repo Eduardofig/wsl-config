@@ -13,3 +13,13 @@ require "user.treesitter"
 require "user.comment"
 require "user.autopairs"
 require "user.telescope"
+require "user.folds"
+
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end

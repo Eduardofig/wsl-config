@@ -6,10 +6,10 @@ if not cmp_status_ok then
 end
 
 local cmp = require 'cmp'
+local view = require 'cmp.view'
 local signature = require 'lsp_signature'
 
 signature.setup()
-
 
 local kind_icons = {
     Class = "",
@@ -38,7 +38,35 @@ local kind_icons = {
     Value = "",
     Variable = "",
 }
+
+
+function add_caret()
+
+    --[[ local idx = 1 ]]
+    --[[ for i, entry in ipairs(cmp.get_entries()) do ]]
+    --[[     if entry == cmp.get_selected_entry() then ]]
+    --[[         idx = i ]]
+    --[[     end ]]
+    --[[ end ]]
+    --[[]]
+    --[[ if idx < #cmp.get_entries() then ]]
+    --[[     cmp.get_entries()[idx + 1].completion_item.label = "Teste" ]]
+    --[[ end ]]
+    --[[]]
+    --[[ cmp.select_next_item() ]]
+end
+
+function remove_caret()
+    --[[ local selected_entry = cmp.get_selected_entry() ]]
+    --[[ if selected_entry ~= nil then ]]
+    --[[     selected_entry:get_vim_item().kind = '>' ]]
+    --[[     print(selected_entry:get_vim_item()) ]]
+    --[[ end ]]
+end
+
 cmp.setup({
+
+
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
@@ -55,15 +83,26 @@ cmp.setup({
             winhighlight = 'Normal:Pmenu,FloatBorder:None'
         }, 
     },
+
     mapping = cmp.mapping.preset.insert({
         ['<C-r>'] = cmp.mapping.scroll_docs(-4),
         ['<C-b>'] = cmp.mapping.scroll_docs(4),
         ['<C-f>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
+        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
         ['<C-Space>'] = function()
             if luasnip.expandable() then
                 luasnip.expand()
             end
         end,
+
+        ['<C-u>'] = function()
+            add_caret()
+        end,
+        ['<C-*>'] = function()
+            remove_caret()
+        end,
+
         ['<C-e>'] = cmp.mapping.abort(),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if luasnip.jumpable(1) then
@@ -91,13 +130,15 @@ cmp.setup({
     formatting = {
         fields = {"kind", "abbr", "menu"},
         format = function(entry, vim_item)
-            vim_item.menu = string.format("%s[%s]", vim_item.kind, entry.source.name:gsub("^%l", string.upper))
+
+            vim_item.menu = string.format("%s[%s]", vim_item.kind, entry.source.name:gsub("^%l", string.upper))
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 
             return vim_item
         end
     }
 })
+
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {

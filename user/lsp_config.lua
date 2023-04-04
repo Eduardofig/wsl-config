@@ -13,10 +13,11 @@ local server_list = {
         }
     },
     tsserver = {},
-    --sumneko_lua = {},
+    --[[ sumneko_lua = {}, ]]
     --rust_analyzer = {},
     bashls = {},
     jdtls = {},
+    prosemd_lsp = {},
 }
 
 local installer_opts = {

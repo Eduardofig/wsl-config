@@ -2,10 +2,21 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
 
+function copilot_toggle_active()
+    if vim.b.copilot_enabled == 1 then
+        vim.b.copilot_enabled = 0
+        print("Copilot disabled")
+    else
+        vim.b.copilot_enabled = 1
+        print("Copilot enabled")
+    end
+end
+
 local imaps = {
     {'<C-l>', '<Esc>viw~ea', {}},
     {'<C-o>', '<Esc>A;<Esc>', {}},
-    {'<C-j>', '<C-n>', opts},
+    {'<C-j>', '<C-n>', {}},
+    {'<C-k>', '<C-p>', opts},
     {'<C-k>', '<C-p>', opts},
 }
 
@@ -68,13 +79,20 @@ local tmaps = {
     {'v', '<A-h>', builtin.command_history, {}},
     {'n', '<A-r>', builtin.grep_string, {}},
     {'i', '<A-r>', builtin.grep_string, {}},
+    {'n', '<A-o>', builtin.git_files, {}},
+    {'i', '<A-o>', builtin.git_files, {}},
     {'n', '<A-b>', builtin.buffers, {}},
     {'i', '<A-b>', builtin.buffers, {}},
+    {'n', '<A-p>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
+    {'i', '<A-p>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
+    {'n', '<A-w>', builtin.live_grep, {}},
+    {'i', '<A-w>', builtin.live_grep, {}},
 
     {'v', 'J', ":m '>+1<CR>gv=gv", {}},
     {'v', 'K', ":m '<-2<CR>gv=gv", {}},
 
     {'n', '<A-a>', mark.add_file, {}},
+
     {'n', '<A-e>', ui.toggle_quick_menu, {}},
 
     {'n', '<A-j>', function() ui.nav_file(1) end, {}},
@@ -82,10 +100,32 @@ local tmaps = {
     {'n', '<A-l>', function() ui.nav_file(3) end, {}},
     {'n', '<A-;>', function() ui.nav_file(4) end, {}},
 
-    {'n', '<leader>g', vim.cmd.Git, {}}
+    {'n', '<leader>g', vim.cmd.Git, {}},
+    {'n', '<A-g>', ':Copilot panel<CR>', {}},
+
+
+
+    {'n', '<A-t>', copilot_toggle_active, {}},
+    {'i', '<A-t>', copilot_toggle_active, {}},
+
+    --[[ {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}}, ]]
 }
 
 for i = 1, #tmaps do
     vim.keymap.set(tmaps[i][1], tmaps[i][2], tmaps[i][3], tmaps[i][4])
 end
 
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = vim.api.nvim_create_augroup('highlight_yank', {}),
+    desc = 'Hightlight selection on yank',
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank { higroup = 'Visual', timeout = 100 }
+    end,
+})
+
+vim.g.copilot_no_tab_map = true
+
+vim.cmd[[
+    imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+]]

@@ -2,7 +2,8 @@
 vim.cmd("colorscheme tokyonight")
 vim.cmd("hi Normal guibg=none")
 vim.cmd("hi NormalNC guibg=none")
-vim.cmd("hi NormalFloat guibg=none")
+--[[ vim.cmd("hi NormalFloat guibg=none") ]]
+vim.cmd("hi FloatBorder guibg=None")
 vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear SignColumn")
 vim.cmd("hi clear TabLineFill")
@@ -20,3 +21,8 @@ vim.cmd("hi NvimTreeNormalNC guibg=None ctermbg=None")
 vim.cmd("hi NvimTreeWinSeparator guibg=None ctermbg=None")
 vim.cmd("hi TelescopeNormal guibg=None")
 vim.cmd("hi TelescopeBorder guibg=None")
+vim.cmd("hi TreesitterContext guibg=None")
+vim.cmd("hi TreesitterContextBottom guibg=None")
+vim.cmd("hi NormalFloat guibg=None")
+vim.cmd("hi CopilotSuggestion guibg=None guifg=#565f89")
+

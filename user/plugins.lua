@@ -30,6 +30,7 @@ packer.startup(function()
     --treesitter
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     --rename
     use 'smjonas/inc-rename.nvim'
@@ -72,6 +73,8 @@ packer.startup(function()
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    use "AckslD/nvim-neoclip.lua"
+
     --harpoon
     use 'theprimeagen/harpoon'
 
@@ -80,5 +83,8 @@ packer.startup(function()
 
     --Git
     use "tpope/vim-fugitive"
+
+    --Copilot
+    use "github/copilot.vim"
 end)
 
