@@ -31,10 +31,15 @@ packer.startup(function()
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
     use 'nvim-treesitter/nvim-treesitter-context'
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
 
     --rename
     use 'smjonas/inc-rename.nvim'
-    
+
     --rust tools
     use 'simrat39/rust-tools.nvim'
 

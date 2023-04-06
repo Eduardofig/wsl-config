@@ -18,6 +18,7 @@ local imaps = {
     {'<C-j>', '<C-n>', {}},
     {'<C-k>', '<C-p>', opts},
     {'<C-k>', '<C-p>', opts},
+    {'<C-]>', '<Plug>(copilot-next)', opts},
 }
 
 for i = 1, #imaps do
@@ -55,7 +56,9 @@ local nmaps = {
 
     {'J', 'mzJ`z', opts},
 
-    {'=', 'mzgg=G`z', opts},
+    {'=', 'mzgg=G`zzz', opts},
+    {'m', ']m', {}},
+    {'M', '[m', {}},
 }
 
 for i = 1, #nmaps do
@@ -103,12 +106,10 @@ local tmaps = {
     {'n', '<leader>g', vim.cmd.Git, {}},
     {'n', '<A-g>', ':Copilot panel<CR>', {}},
 
-
-
     {'n', '<A-t>', copilot_toggle_active, {}},
     {'i', '<A-t>', copilot_toggle_active, {}},
 
-    --[[ {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}}, ]]
+    {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
 }
 
 for i = 1, #tmaps do
@@ -127,5 +128,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.g.copilot_no_tab_map = true
 
 vim.cmd[[
-    imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
 ]]

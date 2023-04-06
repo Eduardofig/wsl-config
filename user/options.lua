@@ -29,3 +29,10 @@ for k, v in pairs(options) do
 end
 
 vim.g.mapleader = " "
+
+vim.cmd[[
+    augroup NoAutoComment
+        au!
+        au FileType * setlocal formatoptions-=cro
+    augroup end
+]]
