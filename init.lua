@@ -14,6 +14,7 @@ require "user.comment"
 require "user.autopairs"
 require "user.telescope"
 require "user.folds"
+require "user.git"
 
 local notify = vim.notify
 vim.notify = function(msg, ...)
@@ -23,3 +24,5 @@ vim.notify = function(msg, ...)
 
     notify(msg, ...)
 end
+
+vim.b.copilot_enabled = 0

@@ -19,6 +19,8 @@ local imaps = {
     {'<C-k>', '<C-p>', opts},
     {'<C-k>', '<C-p>', opts},
     {'<C-]>', '<Plug>(copilot-next)', opts},
+    {'<C-i>', '<Esc>A', opts},
+    --[[ {'<Esc>', '<Esc>:w<CR>', {}}, ]]
 }
 
 for i = 1, #imaps do
@@ -82,6 +84,8 @@ local tmaps = {
     {'v', '<A-h>', builtin.command_history, {}},
     {'n', '<A-r>', builtin.grep_string, {}},
     {'i', '<A-r>', builtin.grep_string, {}},
+    {'n', '<A-u>', builtin.live_grep, {}},
+    {'i', '<A-u>', builtin.live_grep, {}},
     {'n', '<A-o>', builtin.git_files, {}},
     {'i', '<A-o>', builtin.git_files, {}},
     {'n', '<A-b>', builtin.buffers, {}},
@@ -111,6 +115,7 @@ local tmaps = {
 
     {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
 }
+
 
 for i = 1, #tmaps do
     vim.keymap.set(tmaps[i][1], tmaps[i][2], tmaps[i][3], tmaps[i][4])
