@@ -73,27 +73,18 @@ local mark = require "harpoon.mark"
 local ui = require "harpoon.ui"
 
 local tmaps = {
+
     {'n', '<A-[>', builtin.current_buffer_fuzzy_find, {}},
-    {'i', '<A-[>', builtin.current_buffer_fuzzy_find, {}},
     {'n', '<A-]>', builtin.treesitter, {}},
-    {'i', '<A-]>', builtin.treesitter, {}},
     {'n', '<A-f>', builtin.fd, {}},
-    {'i', '<A-f>', builtin.fd, {}},
     {'n', '<A-h>', builtin.command_history, {}},
-    {'i', '<A-h>', builtin.command_history, {}},
     {'v', '<A-h>', builtin.command_history, {}},
     {'n', '<A-r>', builtin.grep_string, {}},
-    {'i', '<A-r>', builtin.grep_string, {}},
     {'n', '<A-u>', builtin.live_grep, {}},
-    {'i', '<A-u>', builtin.live_grep, {}},
     {'n', '<A-o>', builtin.git_files, {}},
-    {'i', '<A-o>', builtin.git_files, {}},
     {'n', '<A-b>', builtin.buffers, {}},
-    {'i', '<A-b>', builtin.buffers, {}},
     {'n', '<A-p>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
-    {'i', '<A-p>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
     {'n', '<A-w>', builtin.live_grep, {}},
-    {'i', '<A-w>', builtin.live_grep, {}},
 
     {'v', 'J', ":m '>+1<CR>gv=gv", {}},
     {'v', 'K', ":m '<-2<CR>gv=gv", {}},

@@ -18,6 +18,8 @@ local server_list = {
     bashls = {},
     jdtls = {},
     prosemd_lsp = {},
+    html = {},
+    tailwindcss = {},
 }
 
 local installer_opts = {
@@ -53,20 +55,15 @@ for type, icon in pairs(signs) do
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
 end
 
-local _border = "single"
+local tw_highlight = require('tailwind-highlight')
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = _border
-  }
-)
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-  vim.lsp.handlers.signature_help, {
-    border = _border
-  }
-)
-
-vim.diagnostic.config{
-  float={border=_border}
-}
+lspcfg.tailwindcss.setup({
+  on_attach = function(client, bufnr)
+    -- rest of you config
+    tw_highlight.setup(client, bufnr, {
+      single_column = false,
+      mode = 'background',
+      debounce = 200,
+    })
+  end
+})

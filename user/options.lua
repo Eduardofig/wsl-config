@@ -36,3 +36,7 @@ vim.cmd[[
         au FileType * setlocal formatoptions-=cro
     augroup end
 ]]
+
+vim.cmd[[
+    set iskeyword-=_
+]]

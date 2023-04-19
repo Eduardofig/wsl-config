@@ -34,6 +34,7 @@ local kind_icons = {
     Struct = "",
     Text = "",
     TypeParameter = "",
+    Type = "",
     Unit = "塞",
     Value = "",
     Variable = "",
@@ -73,12 +74,13 @@ cmp.setup({
     },
     window = {
         completion = { 
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            winhighlight = 'Normal:Pmenu,FloatBorder:None'
+            border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
+            --[[ border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }, ]]
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel'
         },
         documentation = { 
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            winhighlight = 'Normal:Pmenu,FloatBorder:None'
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+            winhighlight = 'Normal:None,FloatBorder:Pmenu'
         }, 
     },
 
@@ -86,8 +88,8 @@ cmp.setup({
         ['<C-r>'] = cmp.mapping.scroll_docs(-4),
         ['<C-b>'] = cmp.mapping.scroll_docs(4),
         ['<C-f>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
-        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 1 }),
+        ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, count = 1 }),
+        ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert, count = 1 }),
         ['<C-Space>'] = function()
             if luasnip.expandable() then
                 luasnip.expand()
@@ -122,7 +124,6 @@ cmp.setup({
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path'},
-        { name = 'treesitter'},
     }
     ),
     formatting = {
@@ -170,5 +171,6 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = {tex = "
 -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    --    capabilities = capabilities
-    -- }
+--    capabilities = capabilities
+-- }
+

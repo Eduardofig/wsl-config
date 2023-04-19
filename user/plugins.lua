@@ -36,6 +36,7 @@ packer.startup(function()
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     })
+    use "windwp/nvim-ts-autotag"
 
     --rename
     use 'smjonas/inc-rename.nvim'
@@ -106,5 +107,12 @@ packer.startup(function()
             })
         end
     })
+
+    -- Standard colors
+    use 'norcalli/nvim-colorizer.lua'
+
+    -- Tailwind colors
+    use "princejoogie/tailwind-highlight.nvim"
+
 end)
 

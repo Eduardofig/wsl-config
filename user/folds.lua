@@ -9,3 +9,4 @@ vim.cmd[[
      autocmd BufWinEnter ?*.* silent! loadview
      augroup end
 ]] 
+
