@@ -1,3 +1,4 @@
+-- 
 -- keymaps
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
@@ -20,6 +21,7 @@ local imaps = {
     {'<C-k>', '<C-p>', opts},
     {'<C-]>', '<Plug>(copilot-next)', opts},
     {'<C-i>', '<Esc>A', opts},
+    {'<Esc>', '<Esc>:w<CR>', opts},
     --[[ {'<Esc>', '<Esc>:w<CR>', {}}, ]]
 }
 
@@ -27,10 +29,16 @@ for i = 1, #imaps do
     keymap('i', imaps[i][1], imaps[i][2], imaps[1][3])
 end
 
-
 local nmaps = {
-    {'<leader>;', 'A;<Esc>', {}},
+    {'u', 'u:w<CR>', opts},
+    {'<C-r>', '<C-r>:w<CR>', opts},
+    {'p', 'p:w<CR>', opts},
+    {'P', 'P:w<CR>', opts},
+    {'<Esc>', '<Esc>:w<CR>', opts},
 
+    {'Q', ':q<CR>', opts},
+
+    {'<leader>;', 'A;<Esc>', {}},
     {'<leader>lt', ':!pdflatex main.tex<Cr><Cr>', {}},
     {'<leader>rr', ':source ~/.config/nvim/init.lua<CR>', {}},
     {'<leader>e', ':NvimTreeToggle<CR>', {}},
@@ -126,3 +134,4 @@ vim.g.copilot_no_tab_map = true
 vim.cmd[[
 imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
 ]]
+
