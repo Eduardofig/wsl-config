@@ -51,13 +51,14 @@ local nmaps = {
     {'<leader>k', ':wincmd k<CR>', {}},
     {'<leader>l', ':wincmd l<CR>', {}},
 
-    {'gt', ':lua vim.lsp.buf.definition()<CR>', opts},
+    {'gt', ':TroubleToggle lsp_definitions<CR>', opts},
     {'g[', ':Gvdiffsplit<CR>', opts},
     {'gd', ':lua vim.lsp.buf.implementation()<CR>', opts},
     {'do', ':lua vim.lsp.buf.hover()<CR>', opts},
-    {'ga', ':lua vim.lsp.buf.code_action()<CR>', opts},
+    {'ga', ':CodeActionMenu<CR>', opts},
     {'gl', ':lua vim.diagnostic.goto_next()<CR>', opts},
     {'gh', ':lua vim.diagnostic.goto_prev()<CR>', opts},
+    {'ge', ':TroubleToggle workspace_diagnostics<CR>', opts},
 
     {'<leader>rn', ':IncRename ', opts},
 
