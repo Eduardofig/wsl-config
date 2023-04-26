@@ -126,7 +126,11 @@ alias cf="cd \$(fd)"
 alias cfh="cd \$(fdh)"
 
 alias nf="nvim \$(ff)"
+alias nd="nvim \$(fd)"
+alias ndh="nvim \$(fdh)"
 alias nfh="nvim \$(ffh)"
+alias nfd="nvim \$(fd)"
+alias nfdh="nvim \$(fdh)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /home/duzinho039/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -140,3 +144,4 @@ export PATH=$PATH:/home/duzinho039/.local/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
