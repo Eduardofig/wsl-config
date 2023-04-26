@@ -20,6 +20,10 @@ local server_list = {
     prosemd_lsp = {},
     html = {},
     tailwindcss = {},
+    cssls = {},
+    cssmodules_ls = {},
+    emmet_ls = {},
+    eslint = {},
 }
 
 local installer_opts = {
@@ -67,3 +71,4 @@ lspcfg.tailwindcss.setup({
     })
   end
 })
+

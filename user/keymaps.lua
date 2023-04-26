@@ -1,4 +1,3 @@
--- 
 -- keymaps
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
@@ -52,13 +51,13 @@ local nmaps = {
     {'<leader>k', ':wincmd k<CR>', {}},
     {'<leader>l', ':wincmd l<CR>', {}},
 
-    {'<leader>gt', ':lua vim.lsp.buf.definition()<CR>', opts},
-    {'<leader>gd', ':lua vim.lsp.buf.implementation()<CR>', opts},
-    {'<leader>do', ':lua vim.lsp.buf.hover()<CR>', opts},
-    {'<leader>ga', ':lua vim.lsp.buf.code_action()<CR>', opts},
-    {'<leader>dj', ':lua vim.diagnostic.goto_next()<CR>', opts},
-    {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
-    {'<leader>dk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
+    {'gt', ':lua vim.lsp.buf.definition()<CR>', opts},
+    {'g[', ':Gvdiffsplit<CR>', opts},
+    {'gd', ':lua vim.lsp.buf.implementation()<CR>', opts},
+    {'do', ':lua vim.lsp.buf.hover()<CR>', opts},
+    {'ga', ':lua vim.lsp.buf.code_action()<CR>', opts},
+    {'gl', ':lua vim.diagnostic.goto_next()<CR>', opts},
+    {'gh', ':lua vim.diagnostic.goto_prev()<CR>', opts},
 
     {'<leader>rn', ':IncRename ', opts},
 
@@ -134,4 +133,3 @@ vim.g.copilot_no_tab_map = true
 vim.cmd[[
 imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
 ]]
-
