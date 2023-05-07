@@ -18,11 +18,13 @@ require "user.git"
 
 local notify = vim.notify
 vim.notify = function(msg, ...)
-    if msg:match("warning: multiple different client offset_encodings") then
-        return
-    end
+    --[[ if msg:match("warning: multiple different client offset_encodings") then ]]
+    --[[     return ]]
+    --[[ end ]]
+    --[[]]
+    --[[ notify(msg, ...) ]]
 
-    notify(msg, ...)
+    return
 end
 
 vim.b.copilot_enabled = 0

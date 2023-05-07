@@ -53,12 +53,16 @@ local nmaps = {
 
     {'gt', ':TroubleToggle lsp_definitions<CR>', opts},
     {'g[', ':Gvdiffsplit<CR>', opts},
-    {'gd', ':lua vim.lsp.buf.implementation()<CR>', opts},
+    {'gd', ':TroubleToggle lsp_references<CR>', opts},
     {'do', ':lua vim.lsp.buf.hover()<CR>', opts},
     {'ga', ':CodeActionMenu<CR>', opts},
-    {'gl', ':lua vim.diagnostic.goto_next()<CR>', opts},
-    {'gh', ':lua vim.diagnostic.goto_prev()<CR>', opts},
-    {'ge', ':TroubleToggle workspace_diagnostics<CR>', opts},
+    {'gj', ':lua vim.diagnostic.goto_next()<CR>', opts},
+    {'gk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
+    {'gh', ':TroubleToggle lsp_type_definitions<CR>', opts},
+    {'go', ':TroubleToggle workspace_diagnostics<CR>', opts},
+    {'gf', ':lua vim.lsp.buf.format({async = true})<CR>', opts},
+
+    { '<leader>M', ":lua require('treesj').toggle({ split = { recursive = true } }) <CR>", opts },
 
     {'<leader>rn', ':IncRename ', opts},
 
@@ -67,7 +71,7 @@ local nmaps = {
     {'J', 'mzJ`z', opts},
 
     {'=', 'mzgg=G`zzz', opts},
-    {'m', ']m', {}},
+    { 'm', ']m', {}},
     {'M', '[m', {}},
 }
 

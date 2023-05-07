@@ -127,5 +127,17 @@ packer.startup(function()
         "folke/trouble.nvim",
         requires = "nvim-tree/nvim-web-devicons",
     }
+
+    use "jose-elias-alvarez/null-ls.nvim"
+
+    use({
+        'Wansmer/treesj',
+        requires = {
+            'nvim-treesitter',
+        },
+        config = function()
+            require('treesj').setup()
+        end,
+    })
 end)
 

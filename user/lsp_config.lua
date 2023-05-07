@@ -24,6 +24,7 @@ local server_list = {
     cssmodules_ls = {},
     emmet_ls = {},
     eslint = {},
+    arduino_language_server = {},
 }
 
 local installer_opts = {
