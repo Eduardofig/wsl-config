@@ -115,8 +115,6 @@ packer.startup(function()
     -- Tailwind colors
     use "princejoogie/tailwind-highlight.nvim"
 
-
-    -- Code Action Menu
     use({
         'weilbith/nvim-code-action-menu',
         cmd = 'CodeActionMenu',
@@ -139,5 +137,11 @@ packer.startup(function()
             require('treesj').setup()
         end,
     })
+
+    -- Todo Comments
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
 end)
 

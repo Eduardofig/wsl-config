@@ -38,7 +38,7 @@ local nmaps = {
     {'Q', ':q<CR>', opts},
 
     {'<leader>;', 'A;<Esc>', {}},
-    {'<leader>lt', ':!pdflatex main.tex<Cr><Cr>', {}},
+    --[[ {'<leader>lt', ':!pdflatex main.tex<Cr><Cr>', {}}, ]]
     {'<leader>rr', ':source ~/.config/nvim/init.lua<CR>', {}},
     {'<leader>e', ':NvimTreeToggle<CR>', {}},
     {'<leader>u', ':UndotreeToggle<CR>:UndotreeFocus<CR>', {}},
@@ -60,7 +60,7 @@ local nmaps = {
     {'gk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
     {'gh', ':TroubleToggle lsp_type_definitions<CR>', opts},
     {'go', ':TroubleToggle workspace_diagnostics<CR>', opts},
-    {'gf', ':lua vim.lsp.buf.format({async = true})<CR>', opts},
+    { 'gf', ':lua vim.lsp.buf.format({async = true})<CR>', opts },
 
     { '<leader>M', ":lua require('treesj').toggle({ split = { recursive = true } }) <CR>", opts },
 
@@ -112,12 +112,10 @@ local tmaps = {
     {'n', '<A-g>', ':Copilot panel<CR>', {}},
 
     {'n', '<A-t>', copilot_toggle_active, {}},
-    {'i', '<A-t>', copilot_toggle_active, {}},
 
     {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
-    {'i', '<C-l>', "<Plug>(copilot-next)", {}},
+    {'i', '<C-r>', "<Plug>(copilot-next)", {}},
 }
-
 
 for i = 1, #tmaps do
     vim.keymap.set(tmaps[i][1], tmaps[i][2], tmaps[i][3], tmaps[i][4])
@@ -135,5 +133,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.g.copilot_no_tab_map = true
 
 vim.cmd[[
-imap <silent><script><expr> <C-r> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
 ]]
