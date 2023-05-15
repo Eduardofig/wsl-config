@@ -86,28 +86,26 @@ local ui = require "harpoon.ui"
 
 local tmaps = {
 
-    {'n', '<A-[>', builtin.current_buffer_fuzzy_find, {}},
-    {'n', '<A-]>', builtin.treesitter, {}},
-    {'n', '<A-f>', builtin.fd, {}},
-    {'n', '<A-h>', builtin.command_history, {}},
-    {'v', '<A-h>', builtin.command_history, {}},
-    {'n', '<A-r>', builtin.grep_string, {}},
+    {'n', '<A-a>', builtin.fd, {}},
+    {'n', '<A-o>', builtin.current_buffer_fuzzy_find, {}},
+    {'n', '<A-e>', builtin.treesitter, {}},
     {'n', '<A-u>', builtin.live_grep, {}},
-    {'n', '<A-o>', builtin.git_files, {}},
+    {'n', '<A-h>', builtin.command_history, {}},
+    {'n', '<A-r>', builtin.grep_string, {}},
+    {'n', '<A-[>', builtin.git_files, {}},
     {'n', '<A-b>', builtin.buffers, {}},
-    {'n', '<A-p>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
-    {'n', '<A-w>', builtin.live_grep, {}},
+    {'n', '<A-y>', ":lua require('telescope').extensions.neoclip.default()<CR>", {}},
 
     {'v', 'J', ":m '>+1<CR>gv=gv", {}},
     {'v', 'K', ":m '<-2<CR>gv=gv", {}},
 
-    {'n', '<A-a>', mark.add_file, {}},
+    {'n', '<A-f>', mark.add_file, {}},
 
-    {'n', '<A-e>', ui.toggle_quick_menu, {}},
+    {'n', '<A-l>', ui.toggle_quick_menu, {}},
 
-    {'n', '<A-j>', function() ui.nav_file(1) end, {}},
-    {'n', '<A-k>', function() ui.nav_file(2) end, {}},
-    {'n', '<A-l>', function() ui.nav_file(3) end, {}},
+    {'n', '<A-p>', function() ui.nav_file(1) end, {}},
+    {'n', '<A-.>', function() ui.nav_file(2) end, {}},
+    {'n', '<A-,>', function() ui.nav_file(3) end, {}},
     {'n', '<A-;>', function() ui.nav_file(4) end, {}},
 
     {'n', '<leader>g', vim.cmd.Git, {}},

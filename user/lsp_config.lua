@@ -2,8 +2,8 @@
 
 local server_list = {
     clangd = {},
-    --jedi_language_server = {},
-    --pylsp = {},
+    --[[ jedi_language_server = {}, ]]
+    --[[ pylsp = {}, ]]
     pyright = {
         python = {
             analysis = {
