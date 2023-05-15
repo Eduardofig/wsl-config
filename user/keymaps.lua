@@ -115,6 +115,7 @@ local tmaps = {
     {'i', '<A-t>', copilot_toggle_active, {}},
 
     {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
+    {'i', '<C-l>', "<Plug>(copilot-next)", {}},
 }
 
 
@@ -134,5 +135,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.g.copilot_no_tab_map = true
 
 vim.cmd[[
-imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-r> copilot#Accept("\<CR>")
 ]]
