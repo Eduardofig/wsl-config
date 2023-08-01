@@ -1,4 +1,5 @@
 require "user.luasnip_config"
+--[[ require "user.rust_tools" ]]
 require "user.lsp_config"
 require "user.cmp_config"
 require "user.appearance"
@@ -15,13 +16,15 @@ require "user.autopairs"
 require "user.telescope"
 require "user.folds"
 require "user.git"
+require "user.trouble"
+require "user.null_ls"
 
 local notify = vim.notify
 vim.notify = function(msg, ...)
     --[[ if msg:match("warning: multiple different client offset_encodings") then ]]
     --[[     return ]]
     --[[ end ]]
-    --[[]]
+
     --[[ notify(msg, ...) ]]
 
     return

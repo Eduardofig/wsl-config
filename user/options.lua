@@ -15,13 +15,14 @@ local options = {
     ignorecase = true,
     smartcase = true,
     backup = false,
-    undodir = '~/.vim/undodir',
+    undodir = '/home/duzinho039/.undodir',
     undofile = true,
     incsearch = true,
     termguicolors = true,
     showmode = false,
     mouse = 'a',
     clipboard = 'unnamedplus',
+    pumheight = 10,
 }
 
 for k, v in pairs(options) do

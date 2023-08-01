@@ -17,7 +17,6 @@ local imaps = {
     {'<C-o>', '<Esc>A;<Esc>', {}},
     {'<C-j>', '<C-n>', {}},
     {'<C-k>', '<C-p>', opts},
-    {'<C-k>', '<C-p>', opts},
     {'<C-]>', '<Plug>(copilot-next)', opts},
     {'<C-i>', '<Esc>A', opts},
     {'<Esc>', '<Esc>:w<CR>', opts},

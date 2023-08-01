@@ -87,7 +87,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<C-r>'] = cmp.mapping.scroll_docs(-4),
         ['<C-b>'] = cmp.mapping.scroll_docs(4),
-        ['<C-f>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-h>'] = cmp.mapping.confirm({ select = true }),
         ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, count = 1 }),
         ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert, count = 1 }),
         ['<C-Space>'] = function()

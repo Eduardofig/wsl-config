@@ -25,6 +25,7 @@ local server_list = {
     emmet_ls = {},
     eslint = {},
     arduino_language_server = {},
+    --[[ sqlls = {}, ]]
 }
 
 local installer_opts = {
