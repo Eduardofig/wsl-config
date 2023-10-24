@@ -146,5 +146,24 @@ packer.startup(function()
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
     }
+
+    -- nvim dap
+    use 'mfussenegger/nvim-dap'
+    use { 'rcarriga/nvim-dap-ui', requires = {'mfussenegger/nvim-dap'} }
+    use 'theHamsta/nvim-dap-virtual-text'
+    use 'nvim-telescope/telescope-dap.nvim'
+    use { "folke/neodev.nvim", opts = {} }
+    use 'mxsdev/nvim-dap-vscode-js'
+    use {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+    }
+
+    -- maximize windows
+    use {
+        'declancm/maximize.nvim',
+        config = function() require('maximize').setup() end
+    }
 end)
 

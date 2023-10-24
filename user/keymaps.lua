@@ -2,6 +2,10 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true }
 
+require("treesj").setup({
+    use_default_keymaps = false,
+})
+
 function copilot_toggle_active()
     if vim.b.copilot_enabled == 1 then
         vim.b.copilot_enabled = 0
@@ -47,6 +51,7 @@ local nmaps = {
 
     {'<leader>h', ':wincmd h<CR>', {}},
     {'<leader>j', ':wincmd j<CR>', {}},
+    {'<Space>j', ':wincmd j<CR>', {}},
     {'<leader>k', ':wincmd k<CR>', {}},
     {'<leader>l', ':wincmd l<CR>', {}},
 
@@ -62,6 +67,7 @@ local nmaps = {
     { 'gf', ':lua vim.lsp.buf.format({async = true})<CR>', opts },
 
     { '<leader>M', ":lua require('treesj').toggle({ split = { recursive = true } }) <CR>", opts },
+    { '<leader>m', ":lua require('treesj').toggle()<CR>", opts },
 
     {'<leader>rn', ':IncRename ', opts},
 
@@ -72,6 +78,16 @@ local nmaps = {
     {'=', 'mzgg=G`zzz', opts},
     { 'm', ']m', {}},
     {'M', '[m', {}},
+
+    -- dap keymaps
+    {'<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts},
+    {'<leader>so', ":lua require'dap'.step_over()<CR>", opts},
+    {'<leader>si', ":lua require'dap'.step_into()<CR>", opts},
+    {'<leader>su', ":lua require'dap'.step_out()<CR>", opts},
+    {'<leader>sc', ":lua require'dap'.continue()<CR>", opts},
+    {'<leader>sr', ":lua require'dap'.restart_frame()<CR>", opts},
+    {'<leader>st', ":lua require'dap'.terminate()<CR>", opts},
+    {'<leader>dr', ":lua require'dap'.repl.open()<CR>", opts},
 }
 
 for i = 1, #nmaps do

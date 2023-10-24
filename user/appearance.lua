@@ -39,6 +39,7 @@ vim.cmd("hi TroublePreview guibg=#232748")
 vim.cmd("hi CodeActionMenuMenuSelection guibg=#232748")
 vim.cmd("hi Comment gui=none cterm=none guifg=#565f89")
 vim.cmd("hi @keyword gui=none cterm=none guifg=#9d7cd8")
+vim.cmd("hi @lsp.type.parameter guifg=#29a4bd")
 
 require'colorizer'.setup()
 require'todo-comments'.setup({
@@ -59,10 +60,22 @@ require'todo-comments'.setup({
         fg = "NONE",
     }
 })
+
+-- Hide all semantic highlights
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    -- if group is different @lsp.type.parameter set hl to 0
+    if group ~= "@lsp.type.parameter" then
+        vim.api.nvim_set_hl(0, group, {})
+    end
+
+end
+
+
 require('tokyonight').setup ({
     styles = {
         comments = {italic = false},
         keywords = {italic = false},
         functions = {italic = false},
+        priority = 10,
     }
 })
