@@ -71,7 +71,7 @@ ZSH_THEME="mh" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode web-search colorize fzf)
+plugins=(git vi-mode web-search colorize fzf zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -144,3 +144,23 @@ export PATH=$PATH:/home/duzinho039/.local/bin
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export OPENAI_API_KEY=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
+export EDITOR="/usr/bin/nvim"
+
+# pnpm
+export PNPM_HOME="/home/duzinho039/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+# bun completions
+[ -s "/home/duzinho039/.bun/_bun" ] && source "/home/duzinho039/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export TERM="xterm-256color"
+
+bindkey '^h' autosuggest-accept
