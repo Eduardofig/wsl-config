@@ -81,6 +81,7 @@ local nmaps = {
 
     -- dap keymaps
     {'<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts},
+    {'<leader>B',":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) <CR>", opts},
     {'<leader>so', ":lua require'dap'.step_over()<CR>", opts},
     {'<leader>si', ":lua require'dap'.step_into()<CR>", opts},
     {'<leader>su', ":lua require'dap'.step_out()<CR>", opts},
@@ -88,6 +89,9 @@ local nmaps = {
     {'<leader>sr', ":lua require'dap'.restart_frame()<CR>", opts},
     {'<leader>st', ":lua require'dap'.terminate()<CR>", opts},
     {'<leader>dr', ":lua require'dap'.repl.open()<CR>", opts},
+
+    -- rest keymaps
+    {'<leader>xr', ":call VrcQuery()<CR>", opts},
 }
 
 for i = 1, #nmaps do

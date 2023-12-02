@@ -35,6 +35,40 @@ for _, language in ipairs(js_based_languages) do
             url = "http://localhost:3000",
             webRoot = "${workspaceFolder}",
             userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Debug Mocha Tests",
+            program = "${file}",
+            -- trace = true, -- include debugger info
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "./node_modules/mocha/bin/mocha",
+            },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+        },
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Debug Jest Tests",
+            -- trace = true, -- include debugger info
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "./node_modules/jest/bin/jest.js",
+                "--runInBand",
+            },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+            resolveSourceMapLocations = {
+                "${workspaceFolder}/**",
+                "!**/node_modules/**",
+            },
         }
     }
 end

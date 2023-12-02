@@ -37,11 +37,19 @@ require('nvim-treesitter.configs').setup({
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["ai"] = "@conditional.outer",
+                ["ii"] = "@conditional.inner",
+                ["aa"] = "@assignment.outer",
+                ["ia"] = "@assignment.inner",
+                ["al"] = "@loop.outer",
+                ["il"] = "@loop.inner",
                 -- You can optionally set descriptions to the mappings (used in the desc parameter of
                 -- nvim_buf_set_keymap) which plugins like which-key display
-                ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                --[[ ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" }, ]]
                 -- You can also use captures from other query groups like `locals.scm`
-                ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+                --[[ ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" }, ]]
+
             },
             -- You can choose the select mode (default is charwise 'v')
             --
@@ -111,6 +119,7 @@ require('nvim-treesitter.configs').setup({
             goto_previous_start = {
                 ["[m"] = "@function.outer",
                 ["[["] = "@class.outer",
+
             },
             goto_previous_end = {
                 ["[M"] = "@function.outer",
@@ -134,3 +143,4 @@ require('nvim-treesitter.configs').setup({
 })
 
 require('treesitter-context').setup{}
+require('ibl').setup{}

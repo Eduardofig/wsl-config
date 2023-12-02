@@ -165,5 +165,9 @@ packer.startup(function()
         'declancm/maximize.nvim',
         config = function() require('maximize').setup() end
     }
+
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use "diepm/vim-rest-console"
 end)
 
