@@ -25,6 +25,8 @@ local server_list = {
     emmet_ls = {},
     eslint = {},
     arduino_language_server = {},
+    gopls = {},
+
     --[[ sqlls = {}, ]]
 }
 
@@ -74,3 +76,5 @@ lspcfg.tailwindcss.setup({
   end
 })
 
+
+require("gopher").setup{}

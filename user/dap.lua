@@ -14,6 +14,8 @@ local js_based_languages = { "typescript", "javascript", "typescriptreact" }
 
 for _, language in ipairs(js_based_languages) do
     require("dap").configurations[language] = {
+
+
         {
             type = "pwa-node",
             request = "launch",
@@ -21,6 +23,8 @@ for _, language in ipairs(js_based_languages) do
             program = "${file}",
             cwd = "${workspaceFolder}",
         },
+
+
         {
             type = "pwa-node",
             request = "attach",
@@ -28,6 +32,8 @@ for _, language in ipairs(js_based_languages) do
             processId = require 'dap.utils'.pick_process,
             cwd = "${workspaceFolder}",
         },
+
+
         {
             type = "pwa-chrome",
             request = "launch",
@@ -36,6 +42,8 @@ for _, language in ipairs(js_based_languages) do
             webRoot = "${workspaceFolder}",
             userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir"
         },
+
+
         {
             type = "pwa-node",
             request = "launch",
@@ -51,6 +59,8 @@ for _, language in ipairs(js_based_languages) do
             console = "integratedTerminal",
             internalConsoleOptions = "neverOpen",
         },
+
+
         {
             type = "pwa-node",
             request = "launch",
@@ -69,9 +79,24 @@ for _, language in ipairs(js_based_languages) do
                 "${workspaceFolder}/**",
                 "!**/node_modules/**",
             },
+        },
+
+        {
         }
     }
 end
+
+
+--[[ require("dap").configurations["go"] = { ]]
+--[[     { ]]
+--[[         type = "go", ]]
+--[[         name = "Debug", ]]
+--[[         request = "launch", ]]
+--[[         program = "${file}", ]]
+--[[         dlvToolPath = vim.fn.exepath("dlv"), ]]
+--[[     }, ]]
+--[[ } ]]
+--[[]]
 
 require("nvim-dap-virtual-text").setup()
 

@@ -8,6 +8,9 @@ local sources = {
     formatting.autopep8,
     formatting.rustfmt,
     formatting.clang_format,
+    formatting.gofumpt,
+    formatting.goimports_reviser,
+    formatting.golines,
 }
 
 null_ls.setup({

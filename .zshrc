@@ -1,9 +1,11 @@
+# nohup find ~/ > /dev/null 2>&1
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export DISABLE_FZF_KEY_BINDINGS="true"
+export DISABLE_FZF_KEY_BINDINGS="false"
+export PATH=$PATH:/usr/local/go/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -131,6 +133,7 @@ alias ndh="nvim \$(fdh)"
 alias nfh="nvim \$(ffh)"
 alias nfd="nvim \$(fd)"
 alias nfdh="nvim \$(fdh)"
+alias ee=explorer.exe
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source /home/duzinho039/.local/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -164,3 +167,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export TERM="xterm-256color"
 
 bindkey '^h' autosuggest-accept
+export OPENAI_KEY=
+export PATH=$PATH:/usr/local/bin
+
+export DB_URL='postgres://postgres:lo981582@localhost:5432/dogs'
+export SEARCH_API_KEY='AIzaSyCFOEOTtLACroQcGVWs-E-Lufh5wJjGn80'
+
+bindkey -r '^[c'

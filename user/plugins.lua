@@ -169,5 +169,7 @@ packer.startup(function()
     use "lukas-reineke/indent-blankline.nvim"
 
     use "diepm/vim-rest-console"
+
+    use "olexsmir/gopher.nvim"
 end)
 
