@@ -12,6 +12,8 @@ require("dap-vscode-js").setup({
 
 local js_based_languages = { "typescript", "javascript", "typescriptreact" }
 
+require("dap-go").setup{}
+
 for _, language in ipairs(js_based_languages) do
     require("dap").configurations[language] = {
 

@@ -159,6 +159,11 @@ packer.startup(function()
         opt = true,
         run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
     }
+    use 'leoluz/nvim-dap-go'
+
+
+    -- nvim nio
+    use 'nvim-neotest/nvim-nio'
 
     -- maximize windows
     use {
