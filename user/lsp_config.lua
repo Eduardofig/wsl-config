@@ -12,7 +12,7 @@ local server_list = {
             path = "/usr/bin/python3"
         }
     },
-    tsserver = {},
+    ts_ls = {},
     --[[ sumneko_lua = {}, ]]
     --rust_analyzer = {},
     bashls = {},
@@ -26,6 +26,7 @@ local server_list = {
     eslint = {},
     arduino_language_server = {},
     gopls = {},
+    omnisharp = {},
 
     --[[ sqlls = {}, ]]
 }

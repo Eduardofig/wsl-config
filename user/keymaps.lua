@@ -55,17 +55,17 @@ local nmaps = {
     {'<leader>k', ':wincmd k<CR>', {}},
     {'<leader>l', ':wincmd l<CR>', {}},
 
-    {'gt', ':TroubleToggle lsp_definitions<CR>', opts},
+    {'gt', ':Trouble lsp_definitions<CR>', opts},
     {'g[', ':Gvdiffsplit<CR>', opts},
-    {'gd', ':TroubleToggle lsp_references<CR>', opts},
+    {'gd', ':Trouble lsp_references<CR>', opts},
     {'gc', ':TodoTrouble<CR>', opts},
     {'do', ':lua vim.lsp.buf.hover()<CR>', opts},
     {'ga', ':CodeActionMenu<CR>', opts},
     {'gj', ':lua vim.diagnostic.goto_next()<CR>', opts},
     {'gk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
-    {'gh', ':TroubleToggle lsp_type_definitions<CR>', opts},
-    {'go', ':TroubleToggle workspace_diagnostics<CR>', opts},
-    {'gf', ':lua vim.lsp.buf.format({async = true})<CR>=', opts},
+    {'gh', ':Trouble lsp_type_definitions<CR>', opts},
+    {'go', ':Trouble diagnostics<CR>', opts},
+    {'gf', ':lua vim.lsp.buf.format({async = true})<CR>', opts},
 
     { '<leader>M', ":lua require('treesj').toggle({ split = { recursive = true } }) <CR>", opts },
     { '<leader>m', ":lua require('treesj').toggle()<CR>", opts },
@@ -81,6 +81,7 @@ local nmaps = {
     {'M', '[m', {}},
 
     -- dap keymaps
+
     {'<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>", opts},
     {'<leader>B',":lua require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) <CR>", opts},
     {'<leader>so', ":lua require'dap'.step_over()<CR>", opts},
