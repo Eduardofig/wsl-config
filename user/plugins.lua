@@ -118,10 +118,7 @@ packer.startup(function()
     -- Tailwind colors
     use "princejoogie/tailwind-highlight.nvim"
 
-    use({
-        'weilbith/nvim-code-action-menu',
-        cmd = 'CodeActionMenu',
-    })
+    use "aznhe21/actions-preview.nvim"
 
     -- Trouble
     use {

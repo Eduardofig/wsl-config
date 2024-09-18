@@ -60,7 +60,6 @@ local nmaps = {
     {'gd', ':Trouble lsp_references toggle focus=true<CR>', opts},
     {'gc', ':TodoTrouble<CR>', opts},
     {'do', ':lua vim.lsp.buf.hover()<CR>', opts},
-    {'ga', ':CodeActionMenu<CR>', opts},
     {'gj', ':lua vim.diagnostic.goto_next()<CR>', opts},
     {'gk', ':lua vim.diagnostic.goto_prev()<CR>', opts},
     {'gh', ':Trouble lsp_type_definitions toggle focus=true<CR>', opts},
@@ -136,6 +135,9 @@ local tmaps = {
 
     {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
     {'i', '<C-r>', "<Plug>(copilot-next)", {}},
+
+    {'n', 'ga', require("actions-preview").code_actions},
+    {'v', 'ga', require("actions-preview").code_actions},
 }
 
 for i = 1, #tmaps do
