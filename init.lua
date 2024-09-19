@@ -20,6 +20,7 @@ require "user.dap"
 require "user.treesitter"
 require "user.appearance"
 require "user.rest"
+require "user.actions_preview"
 
 local notify = vim.notify
 vim.notify = function(msg, ...)
