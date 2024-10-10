@@ -136,11 +136,9 @@ require('nvim-treesitter.configs').setup({
             }
         },
     },
-
-    autotag = {
-        enable = true,
-    }
 })
 
+
 require('treesitter-context').setup{}
+require('nvim-ts-autotag').setup{}
 require('ibl').setup{}

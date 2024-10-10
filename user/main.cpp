@@ -15,6 +15,7 @@
 #define Pr(x) cout << (x) << ' '
 #define Prn(x) cout << (x) << '\n'
 #define Has(x, y) ((x).find((y)) != (x).end())
+#define Whatis(x) cout << #x << " is " << x << '\n'
 
 // #define int ll
  
@@ -41,12 +42,57 @@ ll nxt() {
     return x;
 }
 
+int n, m, q;
+
+vi b;
+vi qu;
+
 void solve() {
-    
+    sort(All(b));
+
+    vi l(n), r(n);
+
+    for(int &x: b) x--;
+
+    int j = 0;
+    int le = -1;
+    for(int i = 0; i < n; ++i) {
+        if(j < m && b[j] == i) {
+            le = i;
+        }
+        l[i] = le;
+    }
+
+    int ri = n;
+    j = m - 1;
+    for(int i = n - 1; i >= 0; --i) {
+        if(j >= 0 && b[j] == i) {
+            ri = i;
+        }
+
+        r[i] = ri;
+    }
+
+    for(int i: qu) {
+        if(i == l[i] || i == r[i]) {
+            Prn(0);
+            continue;
+        }
+
+        int sz = r[i] - l[i] - 1;
+        Prn((sz + 1) / 2);
+    }
 }
 
 void read() {
-    
+    cin >> n >> m >> q;
+
+    qu.resize(q);
+    b.resize(m);
+
+
+    Read(b);
+    Read(qu);
 }
 
 int32_t main() {

@@ -56,9 +56,6 @@ packer.startup(function()
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
-    --devicons
-    use 'kyazdani42/nvim-web-devicons' 
-
     --nvim tree
     use {
         'nvim-tree/nvim-tree.lua',
@@ -173,5 +170,9 @@ packer.startup(function()
     use "diepm/vim-rest-console"
 
     use "olexsmir/gopher.nvim"
+
+    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+
+    use "supermaven-inc/supermaven-nvim"
 end)
 

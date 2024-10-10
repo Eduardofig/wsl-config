@@ -16,6 +16,8 @@ function copilot_toggle_active()
     end
 end
 
+vim.b.copilot_enabled = 0
+
 local imaps = {
     {'<C-l>', '<Esc>viw~ea', {}},
     {'<C-o>', '<Esc>A;<Esc>', {}},
@@ -131,13 +133,15 @@ local tmaps = {
     {'n', '<leader>g', vim.cmd.Git, {}},
     {'n', '<A-g>', ':Copilot panel<CR>', {}},
 
-    {'n', '<A-t>', copilot_toggle_active, {}},
+    --[[ {'n', '<A-t>', copilot_toggle_active, {}}, ]]
+    {'n', '<A-t>', ':SupermavenToggle<CR>', {}},
 
     {'i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", {silent = true}},
     {'i', '<C-r>', "<Plug>(copilot-next)", {}},
 
     {'n', 'ga', require("actions-preview").code_actions},
     {'v', 'ga', require("actions-preview").code_actions},
+    {'n', '<C-l>', require("lsp_lines").toggle},
 }
 
 for i = 1, #tmaps do
@@ -155,6 +159,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.g.copilot_no_tab_map = true
 
-vim.cmd[[
-imap <silent><script><expr> <C-c> copilot#Accept("\<CR>")
-]]
+--[[ vim.cmd[[ ]]
+--[[ imap <silent><script><expr> <C-c> copilot#Accept("\<CR>") ]]
+--[[ ]] 
+
+require("supermaven-nvim").setup({
+    keymaps = {
+    accept_suggestion = "<C-c>",
+  },
+})

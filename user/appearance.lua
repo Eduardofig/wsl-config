@@ -41,6 +41,9 @@ vim.cmd("hi Comment gui=none cterm=none guifg=#565f89")
 vim.cmd("hi @keyword gui=none cterm=none guifg=#9d7cd8")
 vim.cmd("hi @lsp.type.parameter guifg=#29a4bd")
 vim.cmd("hi @ibl.scope.underline.1 gui=bold cterm=bold")
+vim.cmd("hi TelescopePrompt guibg=None")
+vim.cmd("hi TelescopePromptBorder guibg=None")
+vim.cmd("hi TelescopePromptTitle guibg=None")
 
 require'colorizer'.setup()
 require'todo-comments'.setup({

@@ -15,6 +15,7 @@
 #define Pr(x) cout << (x) << ' '
 #define Prn(x) cout << (x) << '\n'
 #define Has(x, y) ((x).find((y)) != (x).end())
+#define Whatis(x) cout << #x << " is " << x << '\n'
 
 // #define int ll
  
@@ -42,7 +43,6 @@ ll nxt() {
 }
 
 void solve() {
-    
 }
 
 void read() {
