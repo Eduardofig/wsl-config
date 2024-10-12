@@ -174,3 +174,44 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = {tex = "
 --    capabilities = capabilities
 -- }
 
+
+require('fine-cmdline').setup({
+  cmdline = {
+    enable_keymaps = true,
+    smart_history = true,
+    prompt = ': '
+  },
+  popup = {
+    position = {
+      row = '40%',
+      col = '50%',
+    },
+    size = {
+      width = '60%',
+    },
+    border = {
+      style = 'rounded',
+    },
+    win_options = {
+      winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
+    },
+  },
+  hooks = {
+    before_mount = function(input)
+      -- code
+    end,
+    after_mount = function(input)
+      local fn = require('fine-cmdline').fn
+      -- code
+
+      vim.keymap.set('i', '<C-n>', fn.complete_or_next_item, {buffer = input.bufnr})
+      vim.keymap.set('i', '<C-p>', fn.stop_complete_or_previous_item, {buffer = input.bufnr})
+    end,
+    set_keymaps = function(imap, feedkeys)
+      -- code
+    end
+  }
+})
+
+vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+vim.api.nvim_set_keymap('v', ':', '<cmd>FineCmdline<CR>', {noremap = true})

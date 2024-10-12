@@ -174,5 +174,12 @@ packer.startup(function()
     use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 
     use "supermaven-inc/supermaven-nvim"
+
+    use {
+        'VonHeikemen/fine-cmdline.nvim',
+        requires = {
+            {'MunifTanjim/nui.nvim'}
+        }
+    }
 end)
 
